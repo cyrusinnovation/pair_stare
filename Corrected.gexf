@@ -8,260 +8,242 @@
     <nodes>
       <node id="Michael Denomy" label="Michael Denomy">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-192.43965" y="-78.49015" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-202.28296" y="-52.59746" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Jonathan Drew" label="Jonathan Drew">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-430.78943" y="-476.91394" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-176.61485" y="-82.84171" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Matt Fowler" label="Matt Fowler">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-409.9533" y="331.97784" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-176.6766" y="-54.170254" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Nick Harsh" label="Nick Harsh">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="79.96031" y="-511.3727" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-149.42859" y="2.4819007" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Laura Dean" label="Laura Dean">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-202.29088" y="-326.48547" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-150.9951" y="-27.059748" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Moss Collum" label="Moss Collum">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-309.62418" y="295.45374" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-136.23306" y="-46.219704" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Beth Brown" label="Beth Brown">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-220.97816" y="-243.82071" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="18.40586" y="-65.365685" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Steven Nunez" label="Steven Nunez">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="74.89909" y="-378.75885" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="37.97815" y="-5.143474" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Jason Berry" label="Jason Berry">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="30.023945" y="-163.94293" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-6.864288" y="-63.685772" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Jacob O'Donnell" label="Jacob O'Donnell">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="48.398975" y="35.197018" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-54.32855" y="-84.12653" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Oliver Stewart" label="Oliver Stewart">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-319.80698" y="-94.07166" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-2.4243224" y="-6.842503" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Aldric Giacomoni" label="Aldric Giacomoni">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="139.39983" y="90.17065" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="13.00815" y="4.974096" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Najati Imam" label="Najati Imam">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-97.36006" y="301.8697" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-27.443213" y="-1.5721841" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Jesse Chen" label="Jesse Chen">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="117.73686" y="-37.907505" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-50.477283" y="-54.700912" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Jason Reid" label="Jason Reid">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-41.50578" y="427.69476" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="6.610051" y="-43.75945" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Daniel Ramteke" label="Daniel Ramteke">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-432.14423" y="-269.84152" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-46.746357" y="-25.381176" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Daniel Wellman" label="Daniel Wellman">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-175.3928" y="21.217218" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-85.88372" y="-40.836674" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Cole Parker" label="Cole Parker">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="416.35535" y="-283.63248" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-190.38902" y="-105.477974" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Paul Nikonowicz" label="Paul Nikonowicz">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-0.79221785" y="-335.3642" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="36.579163" y="79.264" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="David Black" label="David Black">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="46.00713" y="-215.53177" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="4.453742" y="47.41808" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Eric Jones" label="Eric Jones">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="131.90385" y="175.91333" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-4.5231204" y="66.81686" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Jeremy Leakakos" label="Jeremy Leakakos">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="258.3662" y="136.06421" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-26.304823" y="65.37891" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Stuart Childs" label="Stuart Childs">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-417.5698" y="108.8413" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-217.1145" y="-41.158104" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Nick Goodwin" label="Nick Goodwin">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-116.77724" y="-64.425514" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-194.72606" y="-31.738874" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Vitaliy Zakharov" label="Vitaliy Zakharov">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-123.19939" y="-163.44821" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-190.47627" y="-67.37035" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Bob Nadler" label="Bob Nadler">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="275.5241" y="45.938717" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-17.748995" y="-39.86919" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Jeremy Fine" label="Jeremy Fine">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="300.0313" y="-403.44086" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-33.46857" y="-72.6151" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Sam Gottfried" label="Sam Gottfried">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="289.03247" y="263.40454" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-16.129995" y="29.1529" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Sean West" label="Sean West">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-458.64093" y="434.9842" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="26.640076" y="43.60861" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Matthew Salerno" label="Matthew Salerno">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-429.13574" y="-297.57233" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="56.957302" y="-31.532883" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Matt Raibert" label="Matt Raibert">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="390.88666" y="203.43329" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-53.00647" y="10.085361" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Michelle Santarsiero" label="Michelle Santarsiero">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="182.19078" y="400.6621" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-57.715664" y="40.383015" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Conrad Benham" label="Conrad Benham">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-24.155773" y="-365.92395" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-76.987434" y="-7.6880555" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Paul Blair" label="Paul Blair">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-382.23715" y="-210.78766" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-99.26616" y="18.370897" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Paul Infield-Harm" label="Paul Infield-Harm">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-79.83443" y="46.78509" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-97.01256" y="-17.879524" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Rex Madden" label="Rex Madden">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="270.55396" y="404.76514" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-126.48325" y="20.730858" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Marc Rosenberg" label="Marc Rosenberg">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="112.83305" y="426.7713" z="0.0"></viz:position>
-        <viz:color r="153" g="153" b="153"></viz:color>
-      </node>
-      <node id="Robert Smith-Hoffman" label="Robert Smith-Hoffman">
-        <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="267.70074" y="107.91296" z="0.0"></viz:position>
-        <viz:color r="153" g="153" b="153"></viz:color>
-      </node>
-      <node id="Jason Atlee" label="Jason Atlee">
-        <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="478.4557" y="451.96942" z="0.0"></viz:position>
-        <viz:color r="153" g="153" b="153"></viz:color>
-      </node>
-      <node id="M. Umar Hafeez" label="M. Umar Hafeez">
-        <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="390.05096" y="115.9287" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="276.80087" y="759.76105" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Jim Stewart" label="Jim Stewart">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="257.8001" y="-453.50232" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-52.116226" y="72.59106" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Debbie Madden" label="Debbie Madden">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="480.01245" y="358.44287" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-115.74806" y="68.092735" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
       <node id="Bruce Eckfeldt" label="Bruce Eckfeldt">
         <attvalues></attvalues>
-        <viz:size value="10.0"></viz:size>
-        <viz:position x="-173.49553" y="189.83679" z="0.0"></viz:position>
+        <viz:size value="4.0"></viz:size>
+        <viz:position x="-106.44051" y="48.831287" z="0.0"></viz:position>
         <viz:color r="153" g="153" b="153"></viz:color>
       </node>
     </nodes>
