@@ -1,38 +1,38 @@
 var width = 1200,
-    height = 800;
+    height = 850;
 
 var color = d3.scale.category20();
 
 var force = d3.layout.force()
-    .charge(-120)
-    .linkDistance(30)
+    .charge(-5000)
+    .linkDistance(50)
+    .gravity(1)
     .size([width, height]);
 
 var svg = d3.select("#chart").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-d3.json("ps.json", function (json) {
+d3.json("ps_final.json", function (json) {
     force
         .nodes(json.nodes)
-//      .links(json.links)
+        .links(json.links)
         .start();
 
-//  var link = svg.selectAll("line.link")
-//      .data(json.links)
-//    .enter().append("line")
-//      .attr("class", "link")
-//      .style("stroke-width", 1);
+    var link = svg.selectAll("line.link")
+        .data(json.links)
+        .enter().append("line")
+        .attr("class", "link")
+        .style("stroke-width", 1);
 
     var g = svg.selectAll("circle.node")
         .data(json.nodes)
         .enter().append("g")
         .attr("class", "node")
-        .attr("transform", "translate(100.27381112210236,300.4319341249866)")
-
-//        .attr("transform", function (d) {
-//            return "translate(" + (d.x * 400 + 100) + "," + (d.y * 400 + 100) + ")";
-//        })
+//        .attr("transform", "translate(100.27381112210236,300.4319341249866)")
+        .attr("transform", function (d) {
+            return "translate(" + (d.x * 400 + 100) + "," + (d.y * 400 + 100) + ")";
+        })
         .call(force.drag);
     var node = g.append("circle")
         .attr("class", "node")
@@ -48,10 +48,10 @@ d3.json("ps.json", function (json) {
         });
 
     force.on("tick", function () {
-//    link.attr("x1", function(d) { return d.source.x; })
-//        .attr("y1", function(d) { return d.source.y; })
-//        .attr("x2", function(d) { return d.target.x; })
-//        .attr("y2", function(d) { return d.target.y; });
+    link.attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
 
         g.attr("transform", function (d) {
             return "translate(" + d.x + "," + d.y + ")";
