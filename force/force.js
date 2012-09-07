@@ -53,6 +53,17 @@ d3.json("ps_final.json", function (json) {
             circle = d3.select(this);
             circle.style("fill", "steelblue");
             circle.attr("r", 30);
+            var myEdges = svg.selectAll("line").filter(function (line, index) {
+                return line.source == data || line.target == data;
+            });
+            myEdges.each(function (edge) {
+                var source = d3.select(edge.source).select("circle");
+                var target = d3.select(edge.target).select("circle");
+                source.style("fill", "steelblue");
+                source.attr("r", 30);
+                target.style("fill", "steelblue");
+                target.attr("r", 30);
+            });
         })
         .on("mouseout", function (data, index) {
             circle = d3.select(this);
