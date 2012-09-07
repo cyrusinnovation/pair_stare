@@ -23,21 +23,25 @@ function highlight(circle) {
     circle.style("fill", "steelblue");
 }
 
-function has_endpoint_on(line, data) {
-    return line.source === data || line.target === data;
+function has_endpoint_on(edge_data, node_data) {
+    return edge_data.source === node_data || edge_data.target === node_data;
 }
 function find_node_by_name(name) {
-    return d3.select("g[data-name='" + name + "']");
+    return d3.select("g[data-name=\"" + name + "\"]");
 }
-function find_incident_edges(data) {
-    return svg.selectAll("line").filter(function (line, index) {
-        return has_endpoint_on(line, data);
+function find_incident_edges(node_data) {
+    return svg.selectAll("line").filter(function (edge_data, index) {
+        return has_endpoint_on(edge_data, node_data);
     });
 }
 function style_adjacent_nodes(data, style_function) {
-    find_incident_edges(data).each(function (edge) {
-        style_function(find_node_by_name(edge.target.name).select("circle"));
-        style_function(find_node_by_name(edge.source.name).select("circle"));
+    find_incident_edges(data).each(function (edge_data) {
+//        d3.select(edge_data)
+//        .style("stroke-width", 1.5)
+//            .style("fill", "magenta");
+
+        style_function(find_node_by_name(edge_data.target.name).select("circle"));
+        style_function(find_node_by_name(edge_data.source.name).select("circle"));
     });
 }
 d3.json("ps_final.json", function (json) {
@@ -55,12 +59,12 @@ d3.json("ps_final.json", function (json) {
     var g = svg.selectAll("circle.node")
         .data(json.nodes)
         .enter().append("g")
-        .attr("data-name", function (data) {
-            return data.name;
+        .attr("data-name", function (node_data) {
+            return node_data.name;
         })
         .attr("class", "node")
-        .attr("transform", function (data) {
-            return "translate(" + (data.x * 400 + 100) + "," + (data.y * 400 + 100) + ")";
+        .attr("transform", function (node_data) {
+            return "translate(" + (node_data.x * 400 + 100) + "," + (node_data.y * 400 + 100) + ")";
         })
         .call(force.drag);
     var circlething = g.append("circle")
@@ -72,36 +76,35 @@ d3.json("ps_final.json", function (json) {
         .attr("text-anchor", "middle")
         .attr("dy", ".3em")
         .attr("font-size", "10px")
-        .text(function (d) {
-            return d.name;
+        .text(function (node_data) {
+            return node_data.name;
         });
 
-    var circle = svg.selectAll("circle")
-        .on("mouseover", function (data, index) {
-            circle = d3.select(this);
-            style_adjacent_nodes(data, highlight);
+    svg.selectAll("g")
+        .on("mouseover", function (node_data) {
+            style_adjacent_nodes(node_data, highlight);
         })
-        .on("mouseout", function (data, index) {
-            circle = d3.select(this);
-            style_adjacent_nodes(data, unhighlight);
+        .on("mouseout", function (node_data) {
+            style_adjacent_nodes(node_data, unhighlight);
         });
 
     force.on("tick", function () {
-        link.attr("x1", function (d) {
-            return d.source.x;
-        })
-            .attr("y1", function (d) {
-                return d.source.y;
+        link
+            .attr("x1", function (edge_data) {
+                return edge_data.source.x;
             })
-            .attr("x2", function (d) {
-                return d.target.x;
+            .attr("y1", function (edge_data) {
+                return edge_data.source.y;
             })
-            .attr("y2", function (d) {
-                return d.target.y;
+            .attr("x2", function (edge_data) {
+                return edge_data.target.x;
+            })
+            .attr("y2", function (edge_data) {
+                return edge_data.target.y;
             });
 
-        g.attr("transform", function (d) {
-            return "translate(" + d.x + "," + d.y + ")";
+        g.attr("transform", function (node_data) {
+            return "translate(" + node_data.x + "," + node_data.y + ")";
         });
     });
 });
