@@ -48,6 +48,18 @@ d3.json("ps_final.json", function (json) {
             return d.name;
         });
 
+    var circle = svg.selectAll("circle")
+        .on("mouseover", function (data, index) {
+            circle = d3.select(this);
+            circle.style("fill", "steelblue");
+            circle.attr("r", 30);
+        })
+        .on("mouseout", function (data, index) {
+            circle = d3.select(this);
+            circle.style("fill", "lightgoldenrodyellow");
+            circle.attr("r", 25);
+        });
+
     force.on("tick", function () {
         link.attr("x1", function (d) {
             return d.source.x;
