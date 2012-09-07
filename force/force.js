@@ -29,7 +29,6 @@ d3.json("ps_final.json", function (json) {
         .data(json.nodes)
         .enter().append("g")
         .attr("class", "node")
-//        .attr("transform", "translate(100.27381112210236,300.4319341249866)")
         .attr("transform", function (d) {
             return "translate(" + (d.x * 400 + 100) + "," + (d.y * 400 + 100) + ")";
         })
@@ -37,7 +36,9 @@ d3.json("ps_final.json", function (json) {
     var node = g.append("circle")
         .attr("class", "node")
         .attr("r", 25)
-        .style("fill", "lightgrey");
+        .style("fill", "lightyellow")
+        .style("stroke", "darkgreen")
+        .style("stroke-width", 1.5);
 
     g.append("text")
         .attr("text-anchor", "middle")
@@ -48,10 +49,18 @@ d3.json("ps_final.json", function (json) {
         });
 
     force.on("tick", function () {
-    link.attr("x1", function(d) { return d.source.x; })
-        .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
+        link.attr("x1", function (d) {
+            return d.source.x;
+        })
+            .attr("y1", function (d) {
+                return d.source.y;
+            })
+            .attr("x2", function (d) {
+                return d.target.x;
+            })
+            .attr("y2", function (d) {
+                return d.target.y;
+            });
 
         g.attr("transform", function (d) {
             return "translate(" + d.x + "," + d.y + ")";
