@@ -26,9 +26,6 @@ function highlight(circle) {
 function has_endpoint_on(edge_data, node_data) {
     return edge_data.source === node_data || edge_data.target === node_data;
 }
-function find_node_by_name(name) {
-    return d3.select("g[data-name=\"" + name + "\"]");
-}
 function find_incident_edges(node_data) {
     return svg.selectAll("line").filter(function (edge_data, index) {
         return has_endpoint_on(edge_data, node_data);
@@ -36,12 +33,8 @@ function find_incident_edges(node_data) {
 }
 function style_adjacent_nodes(data, style_function) {
     find_incident_edges(data).each(function (edge_data) {
-//        d3.select(edge_data)
-//        .style("stroke-width", 1.5)
-//            .style("fill", "magenta");
-
-        style_function(find_node_by_name(edge_data.target.name).select("circle"));
-        style_function(find_node_by_name(edge_data.source.name).select("circle"));
+        style_function(d3.select("#node_" + edge_data.target.index).select("circle"));
+        style_function(d3.select("#node_" + edge_data.source.index).select("circle"));
     });
 }
 d3.json("ps_final.json", function (json) {
@@ -53,14 +46,17 @@ d3.json("ps_final.json", function (json) {
     var link = svg.selectAll("line.link")
         .data(json.links)
         .enter().append("line")
+        .attr("id", function (edge_data, index) {
+            return "edge_" + index;
+        })
         .attr("class", "link")
         .style("stroke-width", 1);
 
     var g = svg.selectAll("circle.node")
         .data(json.nodes)
         .enter().append("g")
-        .attr("data-name", function (node_data) {
-            return node_data.name;
+        .attr("id", function (node_data) {
+            return "node_" + node_data.index;
         })
         .attr("class", "node")
         .attr("transform", function (node_data) {
