@@ -13,6 +13,33 @@ var svg = d3.select("#chart").append("svg")
     .attr("width", width)
     .attr("height", height);
 
+function unhighlight(circle) {
+    return circle
+        .style("fill", "lightyellow")
+        .style("stroke", "darkgreen")
+        .style("stroke-width", 1.5);
+}
+function highlight(circle) {
+    circle.style("fill", "steelblue");
+}
+
+function has_endpoint_on(line, data) {
+    return line.source === data || line.target === data;
+}
+function find_node_by_name(name) {
+    return d3.select("g[data-name='" + name + "']");
+}
+function find_incident_edges(data) {
+    return svg.selectAll("line").filter(function (line, index) {
+        return has_endpoint_on(line, data);
+    });
+}
+function style_adjacent_nodes(data, style_function) {
+    find_incident_edges(data).each(function (edge) {
+        style_function(find_node_by_name(edge.target.name).select("circle"));
+        style_function(find_node_by_name(edge.source.name).select("circle"));
+    });
+}
 d3.json("ps_final.json", function (json) {
     force
         .nodes(json.nodes)
@@ -28,17 +55,18 @@ d3.json("ps_final.json", function (json) {
     var g = svg.selectAll("circle.node")
         .data(json.nodes)
         .enter().append("g")
+        .attr("data-name", function (data) {
+            return data.name;
+        })
         .attr("class", "node")
-        .attr("transform", function (d) {
-            return "translate(" + (d.x * 400 + 100) + "," + (d.y * 400 + 100) + ")";
+        .attr("transform", function (data) {
+            return "translate(" + (data.x * 400 + 100) + "," + (data.y * 400 + 100) + ")";
         })
         .call(force.drag);
-    var node = g.append("circle")
+    var circlething = g.append("circle")
         .attr("class", "node")
-        .attr("r", 25)
-        .style("fill", "lightyellow")
-        .style("stroke", "darkgreen")
-        .style("stroke-width", 1.5);
+        .attr("r", 25);
+    var node = unhighlight(circlething);
 
     g.append("text")
         .attr("text-anchor", "middle")
@@ -51,13 +79,11 @@ d3.json("ps_final.json", function (json) {
     var circle = svg.selectAll("circle")
         .on("mouseover", function (data, index) {
             circle = d3.select(this);
-            circle.style("fill", "steelblue");
-            circle.attr("r", 30);
+            style_adjacent_nodes(data, highlight);
         })
         .on("mouseout", function (data, index) {
             circle = d3.select(this);
-            circle.style("fill", "lightgoldenrodyellow");
-            circle.attr("r", 25);
+            style_adjacent_nodes(data, unhighlight);
         });
 
     force.on("tick", function () {
