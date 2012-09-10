@@ -5,6 +5,10 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.1.5, RVM: ruby-1.9.3-p194 [pair_stare]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack (v1.4.1, RVM: ruby-1.9.3-p194 [pair_stare]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-protection (v1.2.0, RVM: ruby-1.9.3-p194 [pair_stare]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sinatra (v1.3.3, RVM: ruby-1.9.3-p194 [pair_stare]) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tilt (v1.3.3, RVM: ruby-1.9.3-p194 [pair_stare]) [gem]" level="application" />
   </component>
 </module>
 
