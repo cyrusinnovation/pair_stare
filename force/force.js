@@ -1,5 +1,5 @@
 var width = $(window).width(),
-    height = width * 0.7;
+    height = width / 1.4;
 
 var force = d3.layout.force()
     .size([width, height]);
@@ -53,20 +53,21 @@ function style_incident_edges(node_data, style_function) {
     });
 }
 
-function translate_onto_page(normalized_coordinate, multiplier, padding) {
-    return normalized_coordinate * ($(window).width() * multiplier - padding) + padding / 2;
+function translate_onto_page(normalized_coordinate, scale_factor, padding) {
+    return normalized_coordinate * ($(window).width() / scale_factor - padding) + padding / 2;
 }
 
 d3.json("ps_final.json", function (json) {
     for (var i in json.nodes) {
         var node = json.nodes[i];
         node.x = translate_onto_page(node.x, 1, 100);
-        node.y = translate_onto_page(node.y, 0.7, 100);
+        node.y = translate_onto_page(node.y, 1.4, 100);
     }
 
-    for (var i in json.links) {
-        json.links[i]["index"] = i;
+    for (var j in json.links) {
+        json.links[j]["index"] = j;
     }
+
     force
         .nodes(json.nodes)
         .links(json.links)
@@ -102,12 +103,11 @@ d3.json("ps_final.json", function (json) {
         .attr("class", "node")
         .attr("transform", function (node_data) {
             return "translate(" + node_data.x + "," + node_data.y + ")";
-        })
-        .call(force.drag);
+        });
     var circle = g.append("circle")
         .attr("class", "node")
         .attr("r", 25);
-    var node = unhighlight(circle);
+    unhighlight(circle);
 
     g.append("text")
         .attr("text-anchor", "middle")
@@ -126,24 +126,4 @@ d3.json("ps_final.json", function (json) {
             style_adjacent_nodes(node_data, unhighlight);
             style_incident_edges(node_data, unhighlight_edge)
         });
-//
-//    force.on("tick", function () {
-//        link
-//            .attr("x1", function (edge_data) {
-//                return edge_data.source.x;
-//            })
-//            .attr("y1", function (edge_data) {
-//                return edge_data.source.y;
-//            })
-//            .attr("x2", function (edge_data) {
-//                return edge_data.target.x;
-//            })
-//            .attr("y2", function (edge_data) {
-//                return edge_data.target.y;
-//            });
-//
-//        g.attr("transform", function (node_data) {
-//            return "translate(" + node_data.x + "," + node_data.y + ")";
-//        });
-//    });
 });
