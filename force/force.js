@@ -1,12 +1,7 @@
 var width = $(window).width(),
     height = width * 0.7;
 
-var color = d3.scale.category20();
-
 var force = d3.layout.force()
-    .charge(-5000)
-    .linkDistance(50)
-    .gravity(1)
     .size([width, height]);
 
 var svg = d3.select("#chart").append("svg")
