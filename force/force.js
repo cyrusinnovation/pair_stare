@@ -53,20 +53,15 @@ function style_adjacent_nodes(node_data, style_function) {
 }
 
 function style_incident_edges(node_data, style_function) {
-    return svg.selectAll("line").filter(function (edge_data, index) {
-        var is_incident = has_endpoint_on(edge_data, node_data);
-        if(is_incident) {
-            var edge = d3.select("#edge_" + index);
-            style_function(edge);
-        }
-        return is_incident;
+    find_incident_edges(node_data).each(function(edge_data){
+        style_function(d3.select("#edge_" + edge_data.index));
     });
 }
 
 d3.json("ps_final.json", function (json) {
-    linksos = json.links
-
-
+    for (var i in json.links) {
+        json.links[i]["index"] = i;
+    }
     force
         .nodes(json.nodes)
         .links(json.links)
