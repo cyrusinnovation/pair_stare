@@ -9,30 +9,29 @@ var svg = d3.select("#chart").append("svg")
     .attr("height", height);
 
 function unhighlight(circle) {
-    return circle
-        .style("fill", "lightyellow")
-        .style("stroke", "darkgreen")
-        .style("stroke-width", 1.5);
+    circle.style("fill", "lightgoldenrodyellow");
+    circle.style("stroke", "goldenrod");
+    circle.style("stroke-width", 1.5);
 }
 
 function unhighlight_edge(edge) {
-    edge.style("stroke-width", 1);
-    edge.style("stroke", "darkgray");
+    edge.style("stroke-width", 2);
+    edge.style("stroke", "skyblue");
 }
 
 function highlight(circle) {
-    circle.style("fill", "steelblue");
+    circle.style("fill", "whitesmoke");
+    circle.style("stroke", "whitesmoke");
 }
 
 function highlight_edge(edge) {
-    edge.style("stroke-width", 10);
-    edge.style("stroke", "darkgreen");
+    edge.style("stroke-width", 2);
+    edge.style("stroke", "whitesmoke");
 }
 
 function has_endpoint_on(edge_data, node_data) {
     return edge_data.source === node_data || edge_data.target === node_data;
 }
-
 
 function find_incident_edges(node_data) {
     return svg.selectAll("line").filter(function (edge_data) {
@@ -40,15 +39,22 @@ function find_incident_edges(node_data) {
     });
 }
 
-function style_adjacent_nodes(node_data, style_function) {
+function find_unrelated_edges(node_data) {
+    return svg.selectAll("line").filter(function (edge_data) {
+        return !has_endpoint_on(edge_data, node_data);
+    });
+}
+
+function style_adjacent_nodes(node_data, style_function, inverse_style_function) {
+    inverse_style_function(d3.selectAll("circle"));
     find_incident_edges(node_data).each(function (edge_data) {
         style_function(d3.select("#node_" + edge_data.target.index).select("circle"));
         style_function(d3.select("#node_" + edge_data.source.index).select("circle"));
     });
 }
 
-function style_incident_edges(node_data, style_function) {
-    find_incident_edges(node_data).each(function(edge_data){
+function style_unrelated_edges(node_data, style_function) {
+    find_unrelated_edges(node_data).each(function(edge_data){
         style_function(d3.select("#edge_" + edge_data.index));
     });
 }
@@ -113,17 +119,18 @@ d3.json("ps_final.json", function (json) {
         .attr("text-anchor", "middle")
         .attr("dy", ".3em")
         .attr("font-size", "10px")
+        .attr("font-family", "sans-serif")
         .text(function (node_data) {
             return node_data.name;
         });
 
     svg.selectAll("g")
         .on("mouseover", function (node_data) {
-            style_adjacent_nodes(node_data, highlight);
-            style_incident_edges(node_data, highlight_edge)
+            style_adjacent_nodes(node_data, unhighlight, highlight);
+            style_unrelated_edges(node_data, highlight_edge)
         })
         .on("mouseout", function (node_data) {
-            style_adjacent_nodes(node_data, unhighlight);
-            style_incident_edges(node_data, unhighlight_edge)
+            style_adjacent_nodes(node_data, unhighlight, unhighlight);
+            style_unrelated_edges(node_data, unhighlight_edge)
         });
 });
