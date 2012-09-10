@@ -8,23 +8,31 @@ var svg = d3.select("#chart").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-function unhighlight(circle) {
+function brighten(g) {
+    circle = g.select("circle");
     circle.style("fill", "lightgoldenrodyellow");
     circle.style("stroke", "goldenrod");
     circle.style("stroke-width", 1.5);
+
+    text = g.select("text");
+    text.style("fill", "black")
 }
 
-function unhighlight_edge(edge) {
+function brighten_edge(edge) {
     edge.style("stroke-width", 2);
     edge.style("stroke", "skyblue");
 }
 
-function highlight(circle) {
+function dim(g) {
+    circle = g.select("circle");
     circle.style("fill", "whitesmoke");
     circle.style("stroke", "whitesmoke");
+
+    text = g.select("text");
+    text.style("fill", "gray")
 }
 
-function highlight_edge(edge) {
+function dim_edge(edge) {
     edge.style("stroke-width", 2);
     edge.style("stroke", "whitesmoke");
 }
@@ -46,10 +54,10 @@ function find_unrelated_edges(node_data) {
 }
 
 function style_adjacent_nodes(node_data, style_function, inverse_style_function) {
-    inverse_style_function(d3.selectAll("circle"));
+    inverse_style_function(d3.selectAll("g"));
     find_incident_edges(node_data).each(function (edge_data) {
-        style_function(d3.select("#node_" + edge_data.target.index).select("circle"));
-        style_function(d3.select("#node_" + edge_data.source.index).select("circle"));
+        style_function(d3.select("#node_" + edge_data.target.index));
+        style_function(d3.select("#node_" + edge_data.source.index));
     });
 }
 
@@ -98,7 +106,7 @@ d3.json("ps_final.json", function (json) {
         .attr("y2", function (edge_data) {
             return edge_data.target.y;
         });
-    unhighlight_edge(link);
+    brighten_edge(link);
 
     var g = svg.selectAll("circle.node")
         .data(json.nodes)
@@ -113,7 +121,7 @@ d3.json("ps_final.json", function (json) {
     var circle = g.append("circle")
         .attr("class", "node")
         .attr("r", 25);
-    unhighlight(circle);
+    brighten(g);
 
     g.append("text")
         .attr("text-anchor", "middle")
@@ -126,11 +134,11 @@ d3.json("ps_final.json", function (json) {
 
     svg.selectAll("g")
         .on("mouseover", function (node_data) {
-            style_adjacent_nodes(node_data, unhighlight, highlight);
-            style_unrelated_edges(node_data, highlight_edge)
+            style_adjacent_nodes(node_data, brighten, dim);
+            style_unrelated_edges(node_data, dim_edge)
         })
         .on("mouseout", function (node_data) {
-            style_adjacent_nodes(node_data, unhighlight, unhighlight);
-            style_unrelated_edges(node_data, unhighlight_edge)
+            style_adjacent_nodes(node_data, brighten, brighten);
+            style_unrelated_edges(node_data, brighten_edge)
         });
 });
