@@ -1,5 +1,5 @@
-var width = 1200,
-    height = 850;
+var width = $(window).width(),
+    height = width * 0.7;
 
 var color = d3.scale.category20();
 
@@ -58,7 +58,17 @@ function style_incident_edges(node_data, style_function) {
     });
 }
 
+function translate_onto_page(normalized_coordinate, multiplier, padding) {
+    return normalized_coordinate * ($(window).width() * multiplier - padding) + padding / 2;
+}
+
 d3.json("ps_final.json", function (json) {
+    for (var i in json.nodes) {
+        var node = json.nodes[i];
+        node.x = translate_onto_page(node.x, 1, 100);
+        node.y = translate_onto_page(node.y, 0.7, 100);
+    }
+
     for (var i in json.links) {
         json.links[i]["index"] = i;
     }
@@ -74,7 +84,19 @@ d3.json("ps_final.json", function (json) {
             return "edge_" + index;
         })
         .attr("class", "link")
-        .style("stroke-width", 1);
+        .attr("x1", function (edge_data) {
+            return edge_data.source.x;
+        })
+        .attr("y1", function (edge_data) {
+            return edge_data.source.y;
+        })
+        .attr("x2", function (edge_data) {
+            return edge_data.target.x;
+        })
+        .attr("y2", function (edge_data) {
+            return edge_data.target.y;
+        });
+    unhighlight_edge(link);
 
     var g = svg.selectAll("circle.node")
         .data(json.nodes)
@@ -84,13 +106,13 @@ d3.json("ps_final.json", function (json) {
         })
         .attr("class", "node")
         .attr("transform", function (node_data) {
-            return "translate(" + (node_data.x * 400 + 100) + "," + (node_data.y * 400 + 100) + ")";
+            return "translate(" + node_data.x + "," + node_data.y + ")";
         })
         .call(force.drag);
-    var circlething = g.append("circle")
+    var circle = g.append("circle")
         .attr("class", "node")
         .attr("r", 25);
-    var node = unhighlight(circlething);
+    var node = unhighlight(circle);
 
     g.append("text")
         .attr("text-anchor", "middle")
@@ -109,24 +131,24 @@ d3.json("ps_final.json", function (json) {
             style_adjacent_nodes(node_data, unhighlight);
             style_incident_edges(node_data, unhighlight_edge)
         });
-
-    force.on("tick", function () {
-        link
-            .attr("x1", function (edge_data) {
-                return edge_data.source.x;
-            })
-            .attr("y1", function (edge_data) {
-                return edge_data.source.y;
-            })
-            .attr("x2", function (edge_data) {
-                return edge_data.target.x;
-            })
-            .attr("y2", function (edge_data) {
-                return edge_data.target.y;
-            });
-
-        g.attr("transform", function (node_data) {
-            return "translate(" + node_data.x + "," + node_data.y + ")";
-        });
-    });
+//
+//    force.on("tick", function () {
+//        link
+//            .attr("x1", function (edge_data) {
+//                return edge_data.source.x;
+//            })
+//            .attr("y1", function (edge_data) {
+//                return edge_data.source.y;
+//            })
+//            .attr("x2", function (edge_data) {
+//                return edge_data.target.x;
+//            })
+//            .attr("y2", function (edge_data) {
+//                return edge_data.target.y;
+//            });
+//
+//        g.attr("transform", function (node_data) {
+//            return "translate(" + node_data.x + "," + node_data.y + ")";
+//        });
+//    });
 });
