@@ -12,14 +12,12 @@ function brighten(g) {
     circle = g.select("circle");
     circle.style("fill", "lightgoldenrodyellow");
     circle.style("stroke", "goldenrod");
-    circle.style("stroke-width", 1.5);
 
     text = g.select("text");
     text.style("fill", "black")
 }
 
 function brighten_edge(edge) {
-    edge.style("stroke-width", 2);
     edge.style("stroke", "skyblue");
 }
 
@@ -33,7 +31,6 @@ function dim(g) {
 }
 
 function dim_edge(edge) {
-    edge.style("stroke-width", 2);
     edge.style("stroke", "whitesmoke");
 }
 
@@ -71,7 +68,7 @@ function translate_onto_page(normalized_coordinate, scale_factor, padding) {
     return normalized_coordinate * ($(window).width() / scale_factor - padding) + padding / 2;
 }
 
-d3.json("ps_final.json", function (json) {
+d3.json("pair_stare.json", function (json) {
     for (var i in json.nodes) {
         var node = json.nodes[i];
         node.x = translate_onto_page(node.x, 1, 100);
@@ -124,10 +121,7 @@ d3.json("ps_final.json", function (json) {
     brighten(g);
 
     g.append("text")
-        .attr("text-anchor", "middle")
         .attr("dy", ".3em")
-        .attr("font-size", "10px")
-        .attr("font-family", "sans-serif")
         .text(function (node_data) {
             return node_data.name;
         });

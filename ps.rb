@@ -14,4 +14,4 @@ links = JSON.parse(ps_file)["links"]
 
 
 
-File.write("ps_final.json", {nodes: nodes, links: links}.to_json)
+File.write("pair_stare.json", {nodes: nodes, links: links}.to_json)
