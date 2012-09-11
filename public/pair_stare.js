@@ -64,6 +64,10 @@ function style_unrelated_edges(node_data, unrelated_style) {
     });
 }
 
+function reverse(normalized_coordinate) {
+    return 1 - normalized_coordinate;
+}
+
 function translate_onto_page(normalized_coordinate, scale_factor, padding) {
     return normalized_coordinate * (width / scale_factor - padding) + padding / 2;
 }
@@ -86,7 +90,7 @@ function display_information(node_data) {
 d3.json("pair_stare.json", function (json) {
     for (var i in json.nodes) {
         var node = json.nodes[i];
-        node.x = translate_onto_page(node.x, 1, 160);
+        node.x = translate_onto_page(reverse(node.x), 1, 160);
         node.y = translate_onto_page(node.y, 1.4, 100);
         node.degree = calculate_degree(i, json.links);
     }
