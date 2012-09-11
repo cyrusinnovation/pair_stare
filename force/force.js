@@ -1,7 +1,7 @@
 var width = $(window).width(),
     height = width / 1.4;
 
-var force = d3.layout.force()
+var layout = d3.layout.force()
     .size([width, height]);
 
 var svg = d3.select("#chart").append("svg")
@@ -50,17 +50,17 @@ function find_unrelated_edges(node_data) {
     });
 }
 
-function style_adjacent_nodes(node_data, style_function, inverse_style_function) {
-    inverse_style_function(d3.selectAll("g"));
+function style_adjacent_nodes(node_data, adjacent_style, nonadjacent_style) {
+    nonadjacent_style(d3.selectAll("g"));
     find_incident_edges(node_data).each(function (edge_data) {
-        style_function(d3.select("#node_" + edge_data.target.index));
-        style_function(d3.select("#node_" + edge_data.source.index));
+        adjacent_style(d3.select("#node_" + edge_data.target.index));
+        adjacent_style(d3.select("#node_" + edge_data.source.index));
     });
 }
 
-function style_unrelated_edges(node_data, style_function) {
+function style_unrelated_edges(node_data, unrelated_style) {
     find_unrelated_edges(node_data).each(function(edge_data){
-        style_function(d3.select("#edge_" + edge_data.index));
+        unrelated_style(d3.select("#edge_" + edge_data.index));
     });
 }
 
@@ -79,7 +79,7 @@ d3.json("pair_stare.json", function (json) {
         json.links[j]["index"] = j;
     }
 
-    force
+    layout
         .nodes(json.nodes)
         .links(json.links)
         .start();
@@ -120,10 +120,16 @@ d3.json("pair_stare.json", function (json) {
         .attr("r", 25);
     brighten(g);
 
-    g.append("text")
-        .attr("dy", ".3em")
+    var text = g.append("text")
+        .attr("dy", "-0.3em")
         .text(function (node_data) {
-            return node_data.name;
+            return node_data.name.split(" ")[0];
+        });
+    text.append("tspan")
+        .attr("x", 0)
+        .attr("dy", "1.3em")
+        .text(function (node_data) {
+            return node_data.name.split(" ")[1];
         });
 
     svg.selectAll("g")
