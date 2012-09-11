@@ -1,3 +1,17 @@
+p {
+    font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    margin-top: 7px;
+    margin-bottom: -7px;
+    height: 33px;
+    text-align: center;
+}
+
+span.connections {
+    font-size: 28px;
+    font-weight: bold;
+}
+
 circle {
     stroke-width: 1.5px;
 }

@@ -51,16 +51,16 @@ function find_unrelated_edges(node_data) {
 }
 
 function style_adjacent_nodes(node_data, adjacent_style, nonadjacent_style) {
-    nonadjacent_style(d3.selectAll("g"));
+    nonadjacent_style(svg.selectAll("g"));
     find_incident_edges(node_data).each(function (edge_data) {
-        adjacent_style(d3.select("#node_" + edge_data.target.index));
-        adjacent_style(d3.select("#node_" + edge_data.source.index));
+        adjacent_style(svg.select("#node_" + edge_data.target.index));
+        adjacent_style(svg.select("#node_" + edge_data.source.index));
     });
 }
 
 function style_unrelated_edges(node_data, unrelated_style) {
     find_unrelated_edges(node_data).each(function(edge_data){
-        unrelated_style(d3.select("#edge_" + edge_data.index));
+        unrelated_style(svg.select("#edge_" + edge_data.index));
     });
 }
 
@@ -78,10 +78,15 @@ function calculate_degree(node_id, edge_json) {
     return degree;
 }
 
+function display_information(node_data) {
+    var html = node_data.name + " has pair programmed with <span class='connections'>" + node_data.degree + "</span> different Cyrussians.";
+    $("#information").html(html);
+}
+
 d3.json("pair_stare.json", function (json) {
     for (var i in json.nodes) {
         var node = json.nodes[i];
-        node.x = translate_onto_page(node.x, 1, 150);
+        node.x = translate_onto_page(node.x, 1, 160);
         node.y = translate_onto_page(node.y, 1.4, 100);
         node.degree = calculate_degree(i, json.links);
     }
@@ -148,10 +153,11 @@ d3.json("pair_stare.json", function (json) {
     svg.selectAll("g")
         .on("mouseover", function (node_data) {
             style_adjacent_nodes(node_data, brighten, dim);
-            style_unrelated_edges(node_data, dim_edge)
+            style_unrelated_edges(node_data, dim_edge);
+            display_information(node_data);
         })
         .on("mouseout", function (node_data) {
             style_adjacent_nodes(node_data, brighten, brighten);
-            style_unrelated_edges(node_data, brighten_edge)
+            style_unrelated_edges(node_data, brighten_edge);
         });
 });
