@@ -7107,7 +7107,7 @@ function buildParams( prefix, obj, traditional, add ) {
 				// nested arrays properly, and attempting to do so may cause
 				// a server error. Possible fixes are to modify rack's
 				// deserialization algorithm or to provide an option or flag
-				// to force array serialization to be shallow.
+				// to public array serialization to be shallow.
 				buildParams( prefix + "[" + ( typeof v === "object" ? i : "" ) + "]", v, traditional, add );
 			}
 		});
@@ -8058,7 +8058,7 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 			return responseContainer[ 0 ];
 		};
 
-		// force json dataType
+		// public json dataType
 		s.dataTypes[ 0 ] = "json";
 
 		// Install callback

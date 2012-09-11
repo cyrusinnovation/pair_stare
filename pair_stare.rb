@@ -1,8 +1,8 @@
 #!/usr/bin/env ruby
 require "sinatra"
 
-set :public_folder, 'force'
+set :public_folder, 'public'
 
 get "/" do
-  redirect "/force.html"
+  redirect "/pair_stare.html"
 end
