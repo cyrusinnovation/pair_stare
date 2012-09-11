@@ -1,11 +1,11 @@
-var width = $(window).width(),
+var width = Math.max($(window).width(), 1000),
     height = width / 1.4;
 
 var layout = d3.layout.force()
     .size([width, height]);
 
 var svg = d3.select("#chart").append("svg")
-    .attr("width", width)
+    .attr("width", width - 25)
     .attr("height", height);
 
 function brighten(g) {
@@ -65,14 +65,25 @@ function style_unrelated_edges(node_data, unrelated_style) {
 }
 
 function translate_onto_page(normalized_coordinate, scale_factor, padding) {
-    return normalized_coordinate * ($(window).width() / scale_factor - padding) + padding / 2;
+    return normalized_coordinate * (width / scale_factor - padding) + padding / 2;
+}
+
+function calculate_degree(node_id, edge_json) {
+    var degree = 0;
+    for (var i in edge_json) {
+        if(edge_json[i].source.toString() === node_id || edge_json[i].target.toString() === node_id) {
+            degree++;
+        }
+    }
+    return degree;
 }
 
 d3.json("pair_stare.json", function (json) {
     for (var i in json.nodes) {
         var node = json.nodes[i];
-        node.x = translate_onto_page(node.x, 1, 100);
+        node.x = translate_onto_page(node.x, 1, 150);
         node.y = translate_onto_page(node.y, 1.4, 100);
+        node.degree = calculate_degree(i, json.links);
     }
 
     for (var j in json.links) {
@@ -117,7 +128,9 @@ d3.json("pair_stare.json", function (json) {
         });
     var circle = g.append("circle")
         .attr("class", "node")
-        .attr("r", 25);
+        .attr("r", function(node_data) {
+            return (node_data.degree + 5) * 2;
+        });
     brighten(g);
 
     var text = g.append("text")
